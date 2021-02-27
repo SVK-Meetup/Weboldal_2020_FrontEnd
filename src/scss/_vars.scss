@@ -1,0 +1,38 @@
+// Colors
+$theme-background: var(--svk-theme-background);
+$theme-lines: var(--svk-theme-lines);
+$theme-light: var(--svk-theme-light);
+$theme-accent: var(--svk-theme-accent);
+$theme-text1: var(--svk-theme-text1);
+$theme-text2: var(--svk-theme-text2);
+$theme-link: var(--svk-theme-link);
+$theme-highlight: var(--svk-theme-highlight);
+$theme-gradient-1: linear-gradient(45deg, $theme-link, $theme-accent);
+
+// Media queries - lower bound; default small phone
+$query-phone: 321px;
+$query-tablet: 768px;
+$query-desktop: 1024px;
+$query-large-desktop: 1366px;
+
+// Default values
+$z-z-5: 0 0 5px;
+
+$default-padding: 20px;
+$large-padding: calc(50vw - #{(1366px - 40px) / 2});
+$default-s-radius: 5px;
+$default-m-radius: 10px;
+$section-min-height: 0px;
+$checkbox-size: 15px;
+$info-max-width: 700px;
+
+$default-box-shadow: $z-z-5 currentColor;
+$black-box-shadow: $z-z-5 rgba(0, 0, 0, 0.5);
+$shadow: 0 0 10px;
+$nav-width: 300px;
+$card-filter: brightness(2.5);
+
+// Z-indecies
+$z-nav: 10;
+$z-modal: 20;
+$z-messages: 100;
