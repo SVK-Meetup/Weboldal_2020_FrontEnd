@@ -6,16 +6,15 @@
 </template>
 
 <script lang="ts">
-import IToast from '@/models/IToast';
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import IToast from "@/models/IToast";
+import { Vue, Component, Prop } from "vue-property-decorator";
 
 @Component
 export default class Toast extends Vue {
 	@Prop() data!: IToast;
 	type: string = "ok";
 	created() {
-		if(this.data.status > 399)
-			this.type = "err"
+		if (this.data.status > 399) this.type = "err";
 	}
 }
 </script>
@@ -47,7 +46,6 @@ div.toast {
 		right: 5px;
 		width: 16px;
 		height: 16px;
-		background-color: $theme-highlight;
 		border-radius: 50%;
 		border: none;
 		padding: 0;

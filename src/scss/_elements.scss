@@ -120,6 +120,13 @@ table {
   background-color: $theme-lines;
   border-radius: 3px;
 }
+::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+::-webkit-color-swatch {
+  border-color: $theme-text1;
+}
 
 body {
   $light-spot-h: 100vw;
@@ -215,6 +222,7 @@ input[type="button"],
 input[type="submit"],
 input[type="color"] {
   background-color: $theme-highlight;
+  color: $theme-text2;
   &:hover,
   &:focus {
     box-shadow: $z-z-5 $theme-highlight;
@@ -234,16 +242,16 @@ input {
 }
 
 select,
-button,
 input,
+button,
 textarea {
   outline: none;
-  color: $theme-text1;
 }
 
 input[type="color"] {
   border-radius: 3px;
   padding: 0px;
+  margin: 5px 0;
 }
 
 select,
@@ -253,6 +261,7 @@ input[type="email"],
 input[type="tel"],
 input[type="datetime-local"],
 textarea {
+  color: $theme-text1;
   background-color: $theme-background;
   border: 1px solid currentColor;
   &:hover,
@@ -263,8 +272,8 @@ textarea {
 
 textarea {
   padding: 10px;
-  border: none;
   resize: vertical;
+  border-radius: $default-s-radius;
 }
 
 form,
@@ -288,9 +297,6 @@ fieldset {
   }
   button[type="submit"] {
     margin-top: 10px;
-  }
-  textarea {
-    border-radius: $default-m-radius;
   }
   div.col-group {
     display: grid;
