@@ -1,3 +1,7 @@
+import Contact from "./Contact";
+import Partner from "./Partner";
+import Presenter from "./Presenter";
+
 export default interface EventConfig {
 	title: string
 	bannerURL: string
@@ -6,22 +10,9 @@ export default interface EventConfig {
 	date: Date | string
 	humanDate: string
 	regActive: boolean
-	presenters: Array<{
-		name: string
-		picture: string
-		description: string
-	}>
-	contacts: Array<{
-		name: string
-		picture: string
-		tel: string
-		email: string
-	}>
-	partners: Array<{
-		name: string
-		logo: string
-		website: string
-	}>
+	presenters: Array<Presenter>
+	contacts: Array<Contact>
+	partners: Array<Partner>
 	gallery: Array<{
 		name: string
 		date: string

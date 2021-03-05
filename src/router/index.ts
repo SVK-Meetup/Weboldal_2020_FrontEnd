@@ -16,8 +16,7 @@ const routeConfig: Array<RouteConfig> = [
 			})
 		},
 		children: [
-			{ path: '', redirect: { name: 'Admin.Page' }},
-			{ path: 'page', name: 'Admin.Page' },
+			{ path: 'page', name: 'Admin.Page', alias: '' },
 			{ path: 'registered', name: 'Admin.Registered' }
 		]
 	},
