@@ -5,16 +5,20 @@
 				<div class="hamburger-inner"></div>
 			</div>
 		</div>
-		<div :class="{ 'is-active': active }" class="nav--options-container"><slot></slot></div>
+		<div :class="{ 'is-active': active }" class="nav--options-container">
+			<slot></slot>
+		</div>
 	</nav>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component } from "vue-property-decorator";
 @Component
 export default class CNav extends Vue {
-	active: boolean = false
-	toggle() { this.active = !this.active }
+	active: boolean = false;
+	toggle() {
+		this.active = !this.active;
+	}
 }
 </script>
 
@@ -42,22 +46,24 @@ nav {
 			width: 36px;
 			height: 36px;
 			.hamburger-inner {
-				transition-timing-function: cubic-bezier(.55,.055,.675,.19);
-				transition-duration: .22s;
+				transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+				transition-duration: 0.22s;
 				top: 50%;
 				display: block;
 				margin-top: -2px;
-				&::before, &::after {
-					content: '';
+				&::before,
+				&::after {
+					content: "";
 					display: block;
 				}
 				&::before {
 					top: -10px;
-					transition: top .1s ease-in .25s,opacity .1s ease-in;
+					transition: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
 				}
 				&::after {
 					bottom: -10px;
-					transition: bottom .1s ease-in .25s,transform .22s cubic-bezier(.55,.055,.675,.19);
+					transition: bottom 0.1s ease-in 0.25s,
+						transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 				}
 			}
 			.hamburger-inner,
@@ -73,17 +79,18 @@ nav {
 		&.is-active {
 			.hamburger-box {
 				.hamburger-inner {
-					transition-delay: .12s;
-					transition-timing-function: cubic-bezier(.215,.61,.355,1);
+					transition-delay: 0.12s;
+					transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 					transform: rotate(225deg);
 					&::before {
 						top: 0;
-						transition: top .1s ease-out, opacity .1s ease-out .12s;
+						transition: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
 						opacity: 0;
 					}
 					&::after {
 						bottom: 0;
-						transition: bottom .1s ease-out, transform .22s cubic-bezier(.215,.61,.355,1) .12s;
+						transition: bottom 0.1s ease-out,
+							transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
 						transform: rotate(-90deg);
 					}
 				}
@@ -93,7 +100,7 @@ nav {
 
 	.nav--options-container {
 		transform: translateX(300px);
-		transition: transform .2s ease-out;
+		transition: transform 0.2s ease-out;
 		pointer-events: all;
 		&.is-active {
 			transform: translateX(0);
@@ -125,7 +132,8 @@ nav {
 				transition: all 0.2s ease-in;
 			}
 		}
-		&:hover, &.active {
+		&:hover,
+		&.active {
 			div.nav--dot {
 				transform: scale(1.3);
 				color: $theme-link;

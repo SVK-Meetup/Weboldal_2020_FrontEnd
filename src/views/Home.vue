@@ -64,7 +64,7 @@
 				<h2>Előadók</h2>
 				<div class="flex-wrapper">
 					<div
-						class="card"
+						class="card filter-bg"
 						v-for="(presenter, i) in eventConfig.presenters"
 						:key="i"
 					>
@@ -116,9 +116,11 @@
 							v-model.trim="attendee.comment"
 						/>
 						<div>
-							<button :disabled="waitForResponse" type="submit">
-								Regisztráció
-							</button>
+							<input
+								:disabled="waitForResponse"
+								type="submit"
+								value="Regisztráció"
+							/>
 						</div>
 						<p>
 							Az e-mail cím kizárólag az eseménnyel kapcsolatos információk
@@ -136,7 +138,7 @@
 					<div
 						v-for="(contact, i) in eventConfig.contacts"
 						:key="i"
-						class="card"
+						class="card filter-bg"
 					>
 						<img :src="contact.picture" alt="szervező képe" />
 						<h3 v-html="contact.name"></h3>
@@ -152,7 +154,7 @@
 				<h2>Partnereink</h2>
 				<div class="flex-wrapper">
 					<div
-						class="card"
+						class="card filter-bg"
 						v-for="(partner, i) in eventConfig.partners"
 						:key="i"
 						:title="partner.name"

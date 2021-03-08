@@ -1,7 +1,9 @@
 <template>
 	<div :class="type" class="toast">
 		<span>{{ data.message }}</span>
-		<button @click="$store.commit('REMOVE_TOAST', data.id)">⨉</button>
+		<button type="button" @click="$store.commit('REMOVE_TOAST', data.id)">
+			⨉
+		</button>
 	</div>
 </template>
 

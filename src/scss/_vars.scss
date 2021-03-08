@@ -7,6 +7,11 @@ $theme-text1: var(--svk-theme-text1);
 $theme-text2: var(--svk-theme-text2);
 $theme-link: var(--svk-theme-link);
 $theme-highlight: var(--svk-theme-highlight);
+$theme-moz-backfill: var(--svk-theme-moz-backfill);
+
+$background-web: var(--svk-background-image);
+
+$theme-filter: brightness(2.5);
 $theme-gradient-1: linear-gradient(45deg, $theme-link, $theme-accent);
 
 // Media queries - lower bound; default small phone
@@ -30,7 +35,6 @@ $default-box-shadow: $z-z-5 currentColor;
 $black-box-shadow: $z-z-5 rgba(0, 0, 0, 0.5);
 $shadow: 0 0 10px;
 $nav-width: 300px;
-$card-filter: brightness(2.5);
 
 // Z-indecies
 $z-nav: 10;

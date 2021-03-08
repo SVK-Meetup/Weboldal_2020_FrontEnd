@@ -134,7 +134,7 @@ body {
   display: grid;
   font-family: "Source Sans Pro", sans-serif;
   background-color: $theme-background;
-  background-image: var(--svk-background-image),
+  background-image: $background-web,
     radial-gradient($theme-light, transparent 70%);
   background-repeat: repeat, no-repeat;
   background-size: auto, 100vw 2 * $light-spot-h;
@@ -256,6 +256,7 @@ input[type="color"] {
 
 select,
 input[type="text"],
+input[type="url"],
 input[type="password"],
 input[type="email"],
 input[type="tel"],
@@ -290,13 +291,11 @@ fieldset {
       margin: 0;
     }
     &[type="text"],
+    &[type="url"],
     &[type="password"],
     &[type="email"] {
       width: 100%;
     }
-  }
-  button[type="submit"] {
-    margin-top: 10px;
   }
   div.col-group {
     display: grid;
@@ -410,4 +409,15 @@ div.flex-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.filter-bg {
+  backdrop-filter: $theme-filter;
+}
+
+@supports not (backdrop-filter: $theme-filter) {
+  .filter-bg {
+    background-color: $theme-moz-backfill;
+    background-image: $background-web;
+  }
 }

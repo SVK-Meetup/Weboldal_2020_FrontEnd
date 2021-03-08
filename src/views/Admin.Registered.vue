@@ -1,6 +1,6 @@
 <template>
 	<main class="admin-registered">
-		<h1>Regisztrált: </h1>
+		<h1>Regisztrált:</h1>
 		<table>
 			<thead>
 				<tr>
@@ -13,16 +13,22 @@
 				</tr>
 			</thead>
 			<tbody id="attendee-list">
-					<tr v-for="(attendee, i) in attendees" :key="i+'-attendee'">
-						<td>{{ i }}</td>
-						<td>{{ attendee.name }}</td>
-						<td>{{ attendee.email }}</td>
-						<td>{{ attendee.organization }}</td>
-						<td :title="attendee.comment">{{ attendee.comment }}</td>
-						<td class="td-button" :title="attendee.name">
-							<button class="unregister" @click="deleteAttendee(attendee)">⨉</button>
-						</td>
-					</tr>
+				<tr v-for="(attendee, i) in attendees" :key="i + '-attendee'">
+					<td>{{ i + 1 }}</td>
+					<td>{{ attendee.name }}</td>
+					<td>{{ attendee.email }}</td>
+					<td>{{ attendee.organization }}</td>
+					<td :title="attendee.comment">{{ attendee.comment }}</td>
+					<td class="td-button" :title="attendee.name">
+						<button
+							type="button"
+							class="unregister"
+							@click="deleteAttendee(attendee)"
+						>
+							⨉
+						</button>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 		<button @click="purge">Purge</button>
@@ -30,48 +36,49 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-import IAttendee from '@/models/IAttendee'
+import { Vue, Component } from "vue-property-decorator";
+import IAttendee from "@/models/IAttendee";
 
 @Component
-export default class AdminRegistered extends Vue{
-	attendees: Array<IAttendee> = []
+export default class AdminRegistered extends Vue {
+	attendees: Array<IAttendee> = [];
 	created() {
-		this.$store.dispatch('fetchService', {
-			url: '/api/admin/attendees',
+		this.$store.dispatch("fetchService", {
+			url: "/api/admin/attendees",
 			exStatus: 200,
 			onSuccess: (attendees: Array<IAttendee>) => {
-				this.attendees = attendees
-			}
-		})
+				this.attendees = attendees;
+			},
+		});
 	}
 	deleteAttendee(attendee: IAttendee) {
-		if(confirm(`Biztosan törlöd a(z) ${attendee.name} nevű delikvenst a listáról?`)) {
-			this.$store.dispatch('fetchService', {
-				url: '/api/admin/attendee',
-				method: 'DELETE',
+		if (
+			confirm(
+				`Biztosan törlöd a(z) ${attendee.name} nevű delikvenst a listáról?`
+			)
+		) {
+			this.$store.dispatch("fetchService", {
+				url: "/api/admin/attendee",
+				method: "DELETE",
 				data: {
-					_id: attendee._id
+					_id: attendee._id,
 				},
 				exStatus: 200,
 				onSuccess: () => {
-					this.attendees.splice(
-						this.attendees.indexOf(attendee),
-						1
-					)
-				}
-			})
+					this.attendees.splice(this.attendees.indexOf(attendee), 1);
+				},
+			});
 		}
 	}
 
 	purge() {
-		if(confirm("Biztosan törlöd az EGÉSZ listát?") && confirm("De tényleg?")) {
-			this.$store.dispatch('fetchService', {
-				url: '/api/admin/attendees',
-				method: 'DELETE',
+		if (confirm("Biztosan törlöd az EGÉSZ listát?") && confirm("De tényleg?")) {
+			this.$store.dispatch("fetchService", {
+				url: "/api/admin/attendees",
+				method: "DELETE",
 				exStatus: 200,
-				onSuccess: () => this.attendees = []
-			})
+				onSuccess: () => (this.attendees = []),
+			});
 		}
 	}
 }

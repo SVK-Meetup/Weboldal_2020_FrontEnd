@@ -1,39 +1,30 @@
 section.card-section {
-	$img-size: 125px;
-	$card-width: 270px;
-	margin-bottom: $default-padding * -4;
-	div.flex-wrapper {
-		align-items: flex-start;
-		margin-top: ($img-size / 2);
-		div.card {
-			margin: 0 #{$default-padding / 2};
-			position: relative;
-			width: $card-width;
-			border-radius: $default-m-radius;
-			padding: ($img-size / 2) + 10px 10px $default-padding 10px;
-			backdrop-filter: $card-filter;
-			box-shadow: $black-box-shadow;
-			margin-bottom: ($img-size / 2) + $default-padding * 2;
-			border: 1px solid $theme-lines;
-			img {
-				position: absolute;
-				left: ($card-width - $img-size) / 2;
-				top: $img-size / -2;
-				width: $img-size;
-				height: $img-size;
-				border-radius: 50%;
-				border: 5px solid $theme-light;
-				background-color: $theme-light;
-				box-shadow: 0 0 10px $theme-light;
-			}
-		}
-	}
+  $img-size: 125px;
+  $card-width: 270px;
+  margin-bottom: $default-padding * -4;
+  div.flex-wrapper {
+    align-items: flex-start;
+    margin-top: ($img-size / 2);
+    div.card {
+      margin: 0 #{$default-padding / 2};
+      position: relative;
+      width: $card-width;
+      border-radius: $default-m-radius;
+      padding: ($img-size / 2) + 10px 10px $default-padding 10px;
+      box-shadow: $black-box-shadow;
+      margin-bottom: ($img-size / 2) + $default-padding * 2;
+      border: 1px solid $theme-lines;
+      img {
+        position: absolute;
+        left: ($card-width - $img-size) / 2;
+        top: $img-size / -2;
+        width: $img-size;
+        height: $img-size;
+        border-radius: 50%;
+        border: 5px solid $theme-light;
+        background-color: $theme-light;
+        box-shadow: 0 0 10px $theme-light;
+      }
+    }
+  }
 }
-
-/* @supports not (backdrop-filter: $card-filter) {
-	div.presenter {
-		// TODO: filter placeholder color variable to event
-		background-color: red;
-	}
-}
- */

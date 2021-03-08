@@ -1,6 +1,8 @@
 <template>
 	<div class="modal-wrapper">
-		<div @click.prevent="toggle" class="trigger-wrapper"><slot name="trigger"></slot></div>
+		<div @click.prevent="toggle" class="trigger-wrapper">
+			<slot name="trigger"></slot>
+		</div>
 		<div class="modal" v-if="visible">
 			<button class="close" @click="toggle">⨉</button>
 			<div class="modal--inner">
@@ -29,8 +31,8 @@
 	button.close {
 		$size: 40px;
 		position: absolute;
-		top: -$default-padding + 10px;
-		right: -$default-padding  + 10px;
+		top: -($default-padding - 5px);
+		right: -($default-padding - 5px);
 		width: $size;
 		height: $size;
 		font-size: 30px;
@@ -78,14 +80,14 @@
 </style>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component } from "vue-property-decorator";
 
 @Component
 export default class Modal extends Vue {
-	visible: boolean = false
+	visible: boolean = false;
 
 	toggle() {
-		this.visible = !this.visible
+		this.visible = !this.visible;
 	}
 }
 </script>

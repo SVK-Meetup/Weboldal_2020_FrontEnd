@@ -69,7 +69,7 @@ export default class Countdown extends Vue {
 		height: 3em;
 		border-radius: 50%;
 		position: relative;
-		padding-top: 1em;
+		padding-top: 0.9em;
 		box-shadow: $black-box-shadow;
 		border: 1px solid $theme-highlight;
 		.countdown-tag {
