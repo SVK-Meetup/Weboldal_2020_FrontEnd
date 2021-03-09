@@ -37,8 +37,7 @@
 						<span class="nav--desc">Főoldal</span>
 					</div>
 				</RouterLink>
-				<!-- TODO: fetch instead of this -->
-				<a href="/auth/logout">
+				<a @click.prevent="logout">
 					<div class="nav--dot">
 						<span class="nav--desc">Kijelentkezés</span>
 					</div>
@@ -61,6 +60,14 @@ import IEventConfig from '@/models/IEventConfig'
 })
 export default class Admin extends Vue {
 	@Prop() eventConfig!: IEventConfig
+
+	logout() {
+		this.$store.dispatch("fetchService", {
+			url: "/auth/logout",
+			exStatus: 200,
+			onSuccess: () => this.$router.push({ name: "Home" })
+		})
+	}
 }
 </script>
 
