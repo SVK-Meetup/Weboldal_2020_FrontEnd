@@ -34,7 +34,7 @@
 			<div class="col-group col2-label-text">
 				<label for="banner-url">Banner URL</label>
 				<input
-					type="text"
+					type="url"
 					id="banner-url"
 					placeholder="Banner URL"
 					v-model="localConfig.bannerURL"
@@ -78,7 +78,7 @@
 					<div class="col-group col2-label-text">
 						<label :for="'presenter-picture-' + i">Előadó képe</label>
 						<input
-							type="text"
+							type="url"
 							:id="'presenter-picture-' + i"
 							placeholder="Előadó képe"
 							v-model="presenter.picture"
@@ -119,7 +119,7 @@
 					<div class="col-group col2-label-text">
 						<label :for="'contact-picture-' + i">Kontakt képe</label>
 						<input
-							type="text"
+							type="url"
 							:id="'contact-picture-' + i"
 							placeholder="Kontakt képe"
 							v-model="contact.picture"
@@ -171,7 +171,7 @@
 					<div class="col-group col2-label-text">
 						<label :for="'partner-logo-' + i">Partner logo</label>
 						<input
-							type="text"
+							type="url"
 							:id="'partner-logo-' + i"
 							placeholder="Partner logo"
 							v-model="partner.logo"
@@ -181,7 +181,7 @@
 					<div class="col-group col2-label-text">
 						<label :for="'partner-web-' + i">Partner web</label>
 						<input
-							type="tel"
+							type="url"
 							:id="'partner-web-' + i"
 							placeholder="Partner web"
 							v-model="partner.website"
@@ -213,14 +213,17 @@
 					/>
 				</div>
 			</div>
-			<div><input type="submit" value="Mentés" /></div>
+			<div class="col-group col2-eq-width">
+				<input type="submit" value="Mentés" />
+				<button type="button" @click="reset">Reset</button>
+			</div>
 		</form>
 	</main>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
-import IEventConfig from "@/models/IEventConfig";
+import IEventConfig, { EventConfig } from "@/models/IEventConfig";
 
 import Presenter from "@/models/Presenter";
 import Contact from "@/models/Contact";
@@ -228,14 +231,12 @@ import Partner from "@/models/Partner";
 
 @Component
 export default class AdminPage extends Vue {
-	// @ts-ignore
-	localConfig: IEventConfig = {};
+	localConfig: IEventConfig = new EventConfig();
 	@Prop() eventConfig!: IEventConfig;
 
 	created() {
 		this.localConfig = JSON.parse(JSON.stringify(this.eventConfig));
-		// @ts-ignore
-		this.localConfig.date = this.eventConfig.date.toISOString().slice(0, 16);
+		this.localConfig.date = (this.eventConfig.date as Date).toISOString().slice(0, 16);
 	}
 	commit() {
 		this.$store.commit(
@@ -249,6 +250,12 @@ export default class AdminPage extends Vue {
 			url: "/api/admin/event",
 			method: "PATCH",
 			data: this.localConfig,
+		});
+	}
+	reset() {
+		this.$store.dispatch("fetchService", {
+			url: "/api/admin/event",
+			method: "DELETE",
 		});
 	}
 
