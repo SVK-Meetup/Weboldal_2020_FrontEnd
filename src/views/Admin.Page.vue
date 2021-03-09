@@ -66,7 +66,9 @@
 			<template v-for="(presenter, i) in localConfig.presenters">
 				<fieldset :key="i + 'presenter'">
 					<div class="col-group col2-label-text">
-						<label :for="'presenter-name-' + i" class="html-label">Előadó neve</label>
+						<label :for="'presenter-name-' + i" class="html-label"
+							>Előadó neve</label
+						>
 						<input
 							type="text"
 							:id="'presenter-name-' + i"
@@ -86,7 +88,9 @@
 						/>
 					</div>
 					<div class="col-group">
-						<label :for="'presenter-description-' + i" class="html-label">Előadó leírása</label>
+						<label :for="'presenter-description-' + i" class="html-label"
+							>Előadó leírása</label
+						>
 						<textarea
 							:id="'presenter-description-' + i"
 							placeholder="Előadó leírása"
@@ -107,7 +111,9 @@
 			<template v-for="(contact, i) in localConfig.contacts">
 				<fieldset :key="i + 'contact'">
 					<div class="col-group col2-label-text">
-						<label :for="'contact-name-' + i" class="html-label">Kontakt neve</label>
+						<label :for="'contact-name-' + i" class="html-label"
+							>Kontakt neve</label
+						>
 						<input
 							type="text"
 							:id="'contact-name-' + i"
@@ -236,7 +242,9 @@ export default class AdminPage extends Vue {
 
 	created() {
 		this.localConfig = JSON.parse(JSON.stringify(this.eventConfig));
-		this.localConfig.date = (this.eventConfig.date as Date).toISOString().slice(0, 16);
+		this.localConfig.date = (this.eventConfig.date as Date)
+			.toISOString()
+			.slice(0, 16);
 	}
 	commit() {
 		this.$store.commit(
@@ -253,7 +261,7 @@ export default class AdminPage extends Vue {
 		});
 	}
 	reset() {
-		if(confirm("Biztos alaphelyzetbe állítod az oldalt?")) {
+		if (confirm("Biztos alaphelyzetbe állítod az oldalt?")) {
 			this.$store.dispatch("fetchService", {
 				url: "/api/admin/event",
 				method: "DELETE",

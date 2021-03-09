@@ -2,10 +2,14 @@
 	<div id="app">
 		<div v-if="ready">
 			<div class="messages">
-				<Toast v-for="(toast, i) in $store.state.toasts" :data="toast" :key="i"/>
+				<Toast
+					v-for="(toast, i) in $store.state.toasts"
+					:data="toast"
+					:key="i"
+				/>
 			</div>
-			<RouterView :event-config="$store.state.event"/>
-			<CFooter/>
+			<RouterView :event-config="$store.state.event" />
+			<CFooter />
 		</div>
 		<div v-else class="loader-wrapper">
 			<div class="loader"></div>
@@ -14,29 +18,29 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-import IEventConfig from '@/models/IEventConfig'
-import CFooter from '@/components/CFooter.vue'
-import Toast from '@/components/Toast.vue'
+import { Vue, Component } from "vue-property-decorator";
+import IEventConfig from "@/models/IEventConfig";
+import CFooter from "@/components/CFooter.vue";
+import Toast from "@/components/Toast.vue";
 
 @Component({
 	components: {
 		Toast,
-		CFooter
-	}
+		CFooter,
+	},
 })
 export default class App extends Vue {
-	ready: boolean = false
+	ready: boolean = false;
 
 	created() {
-		this.$store.dispatch('fetchService', {
-			url: '/api/event',
+		this.$store.dispatch("fetchService", {
+			url: "/api/event",
 			exStatus: 200,
 			onSuccess: (event: IEventConfig) => {
-				this.$store.commit('SET_EVENT', event)
-				this.ready = true
-			}
-		})
+				this.$store.commit("SET_EVENT", event);
+				this.ready = true;
+			},
+		});
 	}
 }
 </script>
@@ -106,7 +110,7 @@ $border: 1vmin;
 		vertical-align: middle;
 		&:before,
 		&:after {
-			content: '';
+			content: "";
 			position: absolute;
 			top: 0;
 			left: 0;
