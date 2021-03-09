@@ -63,24 +63,23 @@ export default new Vuex.Store({
 			}
 
 			try {
-				let resData;
+				let resData: any;
 				const contentType = response.headers.get("content-type");
-				if (contentType?.indexOf("application/json") != -1)
+				if (contentType?.indexOf("application/json") != -1) {
 					resData = await response?.json()
-
-				// TODO: Shims instead of ignores
-				// @ts-ignore
-				if(resData?.message) {
-					commit("ADD_TOAST", {
-						// @ts-ignore
-						message: resData.message,
-						status: response.status
-					})
+					if(resData?.message) {
+						commit("ADD_TOAST", {
+							message: resData.message,
+							status: response.status
+						})
+					}
 				}
+
 				if (response.status == 403) {
 					$router.push({ name: "SignIn" })
-					return;
+					return
 				}
+
 				if(!exStatus) return
 				if(response.status == exStatus && onSuccess)
 					return onSuccess(resData)
