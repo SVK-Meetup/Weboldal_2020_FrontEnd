@@ -13,7 +13,7 @@
 				/>
 			</div>
 			<div class="col-group col2-label-text">
-				<label for="shortdesc">Rövid leírás</label>
+				<label for="shortdesc" class="html-label">Rövid leírás</label>
 				<input
 					type="text"
 					id="shortdesc"
@@ -51,7 +51,7 @@
 				/>
 			</div>
 			<div class="col-group">
-				<label for="longdesc">Hosszú leírás</label>
+				<label for="longdesc" class="html-label">Hosszú leírás</label>
 				<textarea
 					id="longdesc"
 					placeholder="Hosszú leírás"
@@ -66,7 +66,7 @@
 			<template v-for="(presenter, i) in localConfig.presenters">
 				<fieldset :key="i + 'presenter'">
 					<div class="col-group col2-label-text">
-						<label :for="'presenter-name-' + i">Előadó neve</label>
+						<label :for="'presenter-name-' + i" class="html-label">Előadó neve</label>
 						<input
 							type="text"
 							:id="'presenter-name-' + i"
@@ -86,7 +86,7 @@
 						/>
 					</div>
 					<div class="col-group">
-						<label :for="'presenter-description-' + i">Előadó leírása</label>
+						<label :for="'presenter-description-' + i" class="html-label">Előadó leírása</label>
 						<textarea
 							:id="'presenter-description-' + i"
 							placeholder="Előadó leírása"
@@ -107,7 +107,7 @@
 			<template v-for="(contact, i) in localConfig.contacts">
 				<fieldset :key="i + 'contact'">
 					<div class="col-group col2-label-text">
-						<label :for="'contact-name-' + i">Kontakt neve</label>
+						<label :for="'contact-name-' + i" class="html-label">Kontakt neve</label>
 						<input
 							type="text"
 							:id="'contact-name-' + i"
@@ -293,11 +293,27 @@ export default class AdminPage extends Vue {
 </script>
 
 <style lang="scss">
+@import "../scss/vars";
 .admin-page {
 	max-width: 1100px;
 	margin: 0 auto;
 	.theme-colors {
 		margin: 0 auto;
+	}
+
+	.html-label {
+		white-space: nowrap;
+		&::after {
+			content: "HTML";
+			line-height: 1em;
+			vertical-align: middle;
+			padding: 2px 5px;
+			font-size: 0.5rem;
+			border-radius: 100px;
+			background-color: $theme-highlight;
+			margin-left: 0.5em;
+			color: $theme-text2;
+		}
 	}
 }
 </style>

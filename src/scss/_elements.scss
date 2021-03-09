@@ -300,6 +300,7 @@ fieldset {
   div.col-group {
     display: grid;
     text-align: left;
+    line-height: 30px;
     gap: $default-padding;
     &.col2-eq-width {
       grid-template-columns: 1fr 1fr;
@@ -309,7 +310,6 @@ fieldset {
     }
     &.col2-label-text {
       grid-template-columns: 7em 1fr;
-      line-height: 30px;
     }
   }
 }

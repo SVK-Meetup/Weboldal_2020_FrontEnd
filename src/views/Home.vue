@@ -49,7 +49,7 @@
 					<br />
 					<p class="banner--brief" v-html="eventConfig.shortdesc"></p>
 					<br />
-					<p class="banner--date" v-html="eventConfig.humanDate"></p>
+					<p class="banner--date">{{ eventConfig.humanDate }}</p>
 					<br />
 					<a href="#registration" class="action-link">Regisztráció</a>
 				</div>
