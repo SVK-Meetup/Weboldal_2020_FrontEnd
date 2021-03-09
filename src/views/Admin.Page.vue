@@ -253,10 +253,12 @@ export default class AdminPage extends Vue {
 		});
 	}
 	reset() {
-		this.$store.dispatch("fetchService", {
-			url: "/api/admin/event",
-			method: "DELETE",
-		});
+		if(confirm("Biztos alaphelyzetbe állítod az oldalt?")) {
+			this.$store.dispatch("fetchService", {
+				url: "/api/admin/event",
+				method: "DELETE",
+			});
+		}
 	}
 
 	addPresenter() {
