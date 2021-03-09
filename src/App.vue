@@ -29,7 +29,6 @@ export default class App extends Vue {
 	ready: boolean = false
 
 	created() {
-		this.$store.commit('SET_EVENT', this.$store.state.event)
 		this.$store.dispatch('fetchService', {
 			url: '/api/event',
 			exStatus: 200,

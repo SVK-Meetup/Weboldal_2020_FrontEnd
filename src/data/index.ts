@@ -1,8 +1,10 @@
 import Vue from "vue"
 import Vuex from "vuex"
-import IEventConfig from "@/models/IEventConfig"
+import IEventConfig, { EventConfig } from "@/models/IEventConfig"
 import IToast from "@/models/IToast"
 import IFetchOptions from "@/models/IFetchOptions"
+
+import $router from "../router"
 
 Vue.use(Vuex)
 
@@ -11,29 +13,7 @@ var toastID = 0;
 export default new Vuex.Store({
 	state: {
 		toasts: new Array<IToast>(0),
-		event!: {
-			title: "",
-			bannerURL: "",
-			shortdesc: "",
-			longdesc: "",
-			date: new Date(),
-			humanDate: "",
-			regActive: false,
-			presenters: [],
-			contacts: [],
-			partners: [],
-			gallery: [],
-			theme: {
-				background: "#ffffff",
-				lines: "#aaaaaa",
-				light: "#ffffff",
-				accent: "#ffffff",
-				text1: "#000000",
-				text2: "#ffffff",
-				link: "#ffffff",
-				highlight: "#ffffff"
-			}
-		} as IEventConfig
+		event: new EventConfig() as IEventConfig
 	},
 	mutations: {
 		ADD_TOAST(state, toast: IToast) {
@@ -76,16 +56,19 @@ export default new Vuex.Store({
 			const response: void | Response = await fetch(url, options).catch(console.error)
 
 			if(!response) {
-				commit("ADD_TOAST", {
+				return commit("ADD_TOAST", {
 					message: "Nincs kapcsolat a szerverrel.",
 					status: 400
 				})
-				return
 			}
 
 			try {
-				const resData = await response?.json()
-				// console.info(resData)
+				let resData;
+				const contentType = response.headers.get("content-type");
+				if (contentType?.indexOf("application/json") != -1)
+					resData = await response?.json()
+
+				// TODO: Shims instead of ignores
 				// @ts-ignore
 				if(resData?.message) {
 					commit("ADD_TOAST", {
@@ -93,6 +76,10 @@ export default new Vuex.Store({
 						message: resData.message,
 						status: response.status
 					})
+				}
+				if (response.status == 403) {
+					$router.push({ name: "SignIn" })
+					return;
 				}
 				if(!exStatus) return
 				if(response.status == exStatus && onSuccess)
