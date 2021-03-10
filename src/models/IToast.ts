@@ -1,5 +1,5 @@
 export default interface IToast {
-	message: string
-	status: number
-	id: number
+	message: string;
+	status: number;
+	id: number;
 }

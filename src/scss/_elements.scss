@@ -2,7 +2,7 @@
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html,
@@ -56,15 +56,15 @@ header,
 nav,
 section,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  text-size-adjust: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	text-size-adjust: none;
 }
 
 footer,
@@ -72,30 +72,30 @@ header,
 nav,
 section,
 main {
-  display: block;
+	display: block;
 }
 
 ol,
 ul {
-  list-style: none;
+	list-style: none;
 }
 
 blockquote,
 q {
-  quotes: none;
+	quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
-  content: none;
+	content: "";
+	content: none;
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 // --- END OF RESET ---
@@ -103,105 +103,105 @@ table {
 @import "vars";
 
 :root {
-  scroll-behavior: smooth;
-  color: $theme-text1;
+	scroll-behavior: smooth;
+	color: $theme-text1;
 }
 
 ::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: currentColor;
-  opacity: 1; /* Firefox */
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: currentColor;
+	opacity: 1; /* Firefox */
 }
 
 ::-webkit-scrollbar {
-  background-color: $theme-background;
+	background-color: $theme-background;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: $theme-lines;
-  border-radius: 3px;
+	background-color: $theme-lines;
+	border-radius: 3px;
 }
 ::-webkit-color-swatch-wrapper {
-  padding: 0;
+	padding: 0;
 }
 
 ::-webkit-color-swatch {
-  border-color: $theme-text1;
+	border-color: $theme-text1;
 }
 
 body {
-  $light-spot-h: 100vw;
-  overflow-x: hidden;
-  display: grid;
-  font-family: "Source Sans Pro", sans-serif;
-  background-color: $theme-background;
-  background-image: $background-web,
-    radial-gradient($theme-light, transparent 70%);
-  background-repeat: repeat, no-repeat;
-  background-size: auto, 100vw 2 * $light-spot-h;
-  background-position: 0 0,
-    center calc(#{$section-min-height} - #{$light-spot-h});
-  line-height: 1;
-  text-align: center;
-  transition: color 0.2s ease-out, background-color 0.2s ease-out;
+	$light-spot-h: 100vw;
+	overflow-x: hidden;
+	display: grid;
+	font-family: "Source Sans Pro", sans-serif;
+	background-color: $theme-background;
+	background-image: $background-web,
+		radial-gradient($theme-light, transparent 70%);
+	background-repeat: repeat, no-repeat;
+	background-size: auto, 100vw 2 * $light-spot-h;
+	background-position: 0 0,
+		center calc(#{$section-min-height} - #{$light-spot-h});
+	line-height: 1;
+	text-align: center;
+	transition: color 0.2s ease-out, background-color 0.2s ease-out;
 }
 
 main {
-  min-height: calc(100vh - 96px);
+	min-height: calc(100vh - 96px);
 }
 
 hr {
-  width: 90%;
-  max-width: 800px;
-  margin: $default-padding Max($large-padding, $default-padding);
-  border: none;
-  background-image: linear-gradient(
-    90deg,
-    transparent,
-    $theme-text1,
-    transparent
-  );
-  display: inline-block;
-  height: 1px;
+	width: 90%;
+	max-width: 800px;
+	margin: $default-padding Max($large-padding, $default-padding);
+	border: none;
+	background-image: linear-gradient(
+		90deg,
+		transparent,
+		$theme-text1,
+		transparent
+	);
+	display: inline-block;
+	height: 1px;
 }
 
 section {
-  min-height: $section-min-height;
-  display: grid;
-  width: 100%;
-  padding: $default-padding Max($large-padding, $default-padding);
-  &.with-heading {
-    grid-template-rows: 4rem 1fr;
-  }
+	min-height: $section-min-height;
+	display: grid;
+	width: 100%;
+	padding: $default-padding Max($large-padding, $default-padding);
+	&.with-heading {
+		grid-template-rows: 4rem 1fr;
+	}
 }
 
 h1 {
-  font-size: 3rem;
+	font-size: 3rem;
 }
 
 h2 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+	font-size: 2.5rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
 }
 
 h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
 }
 
 p {
-  margin: 20px 0;
-  line-height: 1.5em;
+	margin: 20px 0;
+	line-height: 1.5em;
 }
 
 input,
 button,
 select {
-  height: 30px;
-  line-height: 30px;
-  border: none;
-  text-align: center;
-  padding: 0 20px;
+	height: 30px;
+	line-height: 30px;
+	border: none;
+	text-align: center;
+	padding: 0 20px;
 }
 
 a,
@@ -210,48 +210,48 @@ button,
 input[type="button"],
 input[type="submit"],
 input[type="color"] {
-  cursor: pointer;
-  &:disabled {
-    background-color: grey;
-    cursor: not-allowed;
-  }
+	cursor: pointer;
+	&:disabled {
+		background-color: grey;
+		cursor: not-allowed;
+	}
 }
 
 button,
 input[type="button"],
 input[type="submit"],
 input[type="color"] {
-  background-color: $theme-highlight;
-  color: $theme-text2;
-  &:hover,
-  &:focus {
-    box-shadow: $z-z-5 $theme-highlight;
-  }
+	background-color: $theme-highlight;
+	color: $theme-text2;
+	&:hover,
+	&:focus {
+		box-shadow: $z-z-5 $theme-highlight;
+	}
 }
 
 a,
 select,
 button,
 input {
-  border-radius: 100px;
-  transition: all 0.2s ease-out;
-  &::after,
-  &::before {
-    transition: all 0.5s cubic-bezier(1, 0, 0, 1);
-  }
+	border-radius: 100px;
+	transition: all 0.2s ease-out;
+	&::after,
+	&::before {
+		transition: all 0.5s cubic-bezier(1, 0, 0, 1);
+	}
 }
 
 select,
 input,
 button,
 textarea {
-  outline: none;
+	outline: none;
 }
 
 input[type="color"] {
-  border-radius: 3px;
-  padding: 0px;
-  margin: 5px 0;
+	border-radius: 3px;
+	padding: 0px;
+	margin: 5px 0;
 }
 
 select,
@@ -262,162 +262,162 @@ input[type="email"],
 input[type="tel"],
 input[type="datetime-local"],
 textarea {
-  color: $theme-text1;
-  background-color: $theme-background;
-  border: 1px solid currentColor;
-  &:hover,
-  &:focus {
-    box-shadow: $z-z-5 $theme-accent, $z-z-5 $theme-accent inset;
-  }
+	color: $theme-text1;
+	background-color: $theme-background;
+	border: 1px solid currentColor;
+	&:hover,
+	&:focus {
+		box-shadow: $z-z-5 $theme-accent, $z-z-5 $theme-accent inset;
+	}
 }
 
 textarea {
-  padding: 10px;
-  resize: vertical;
-  border-radius: $default-s-radius;
+	padding: 10px;
+	resize: vertical;
+	border-radius: $default-s-radius;
 }
 
 form,
 fieldset {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: $default-padding;
-  margin: 0 auto;
-  width: 100%;
-  input {
-    &[type="checkbox"] {
-      width: $checkbox-size;
-      height: $checkbox-size;
-      margin: 0;
-    }
-    &[type="text"],
-    &[type="url"],
-    &[type="password"],
-    &[type="email"] {
-      width: 100%;
-    }
-  }
-  div.col-group {
-    display: grid;
-    text-align: left;
-    line-height: 30px;
-    gap: $default-padding;
-    &.col2-eq-width {
-      grid-template-columns: 1fr 1fr;
-    }
-    &.col2-label-checkbox {
-      grid-template-columns: 1fr $checkbox-size;
-    }
-    &.col2-label-text {
-      grid-template-columns: 7em 1fr;
-    }
-  }
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: $default-padding;
+	margin: 0 auto;
+	width: 100%;
+	input {
+		&[type="checkbox"] {
+			width: $checkbox-size;
+			height: $checkbox-size;
+			margin: 0;
+		}
+		&[type="text"],
+		&[type="url"],
+		&[type="password"],
+		&[type="email"] {
+			width: 100%;
+		}
+	}
+	div.col-group {
+		display: grid;
+		text-align: left;
+		line-height: 30px;
+		gap: $default-padding;
+		&.col2-eq-width {
+			grid-template-columns: 1fr 1fr;
+		}
+		&.col2-label-checkbox {
+			grid-template-columns: 1fr $checkbox-size;
+		}
+		&.col2-label-text {
+			grid-template-columns: 7em 1fr;
+		}
+	}
 }
 
 table {
-  margin: $default-padding auto;
-  border: 1px solid $theme-text1;
-  border-radius: $default-s-radius;
-  border-collapse: separate;
-  tr {
-    td,
-    th {
-      border: 1px solid $theme-text1;
-      padding: 10px;
-    }
-    th {
-      border-bottom: 2px solid $theme-text1;
-      &:first-child {
-        border-top-left-radius: $default-s-radius;
-      }
-      &:last-child {
-        border-top-right-radius: $default-s-radius;
-      }
-    }
-    &:last-child {
-      td {
-        &:first-child {
-          border-bottom-left-radius: $default-s-radius;
-        }
-        &:last-child {
-          border-bottom-right-radius: $default-s-radius;
-        }
-      }
-    }
-  }
+	margin: $default-padding auto;
+	border: 1px solid $theme-text1;
+	border-radius: $default-s-radius;
+	border-collapse: separate;
+	tr {
+		td,
+		th {
+			border: 1px solid $theme-text1;
+			padding: 10px;
+		}
+		th {
+			border-bottom: 2px solid $theme-text1;
+			&:first-child {
+				border-top-left-radius: $default-s-radius;
+			}
+			&:last-child {
+				border-top-right-radius: $default-s-radius;
+			}
+		}
+		&:last-child {
+			td {
+				&:first-child {
+					border-bottom-left-radius: $default-s-radius;
+				}
+				&:last-child {
+					border-bottom-right-radius: $default-s-radius;
+				}
+			}
+		}
+	}
 }
 
 a {
-  text-decoration: none;
-  color: $theme-link;
-  &:hover {
-    color: $theme-highlight;
-    text-shadow: 0 0 2px $theme-highlight;
-  }
+	text-decoration: none;
+	color: $theme-link;
+	&:hover {
+		color: $theme-highlight;
+		text-shadow: 0 0 2px $theme-highlight;
+	}
 }
 
 a.action-link {
-  $d: 2px;
-  position: relative;
-  z-index: 0;
-  display: inline-block;
-  padding: 15px;
-  border-radius: $default-s-radius;
-  overflow: hidden;
-  color: $theme-text1;
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-  &::after,
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-  }
-  &::before {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-image: $theme-gradient-1;
-  }
-  &::after {
-    top: $d;
-    left: $d;
-    width: calc(100% - #{2 * $d});
-    height: calc(100% - #{2 * $d});
-    background-color: $theme-background;
-    border-radius: 3px;
-  }
-  &:hover {
-    &::before {
-      transform: rotate(180deg);
-    }
-  }
-  &:active {
-    transform: scale(1.1);
-  }
+	$d: 2px;
+	position: relative;
+	z-index: 0;
+	display: inline-block;
+	padding: 15px;
+	border-radius: $default-s-radius;
+	overflow: hidden;
+	color: $theme-text1;
+	font-size: 1.5rem;
+	letter-spacing: 2px;
+	&::after,
+	&::before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+	}
+	&::before {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		background-image: $theme-gradient-1;
+	}
+	&::after {
+		top: $d;
+		left: $d;
+		width: calc(100% - #{2 * $d});
+		height: calc(100% - #{2 * $d});
+		background-color: $theme-background;
+		border-radius: 3px;
+	}
+	&:hover {
+		&::before {
+			transform: rotate(180deg);
+		}
+	}
+	&:active {
+		transform: scale(1.1);
+	}
 }
 
 div.grid-wrapper {
-  width: 100%;
-  display: grid;
+	width: 100%;
+	display: grid;
 }
 
 div.flex-wrapper {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
 }
 
 .filter-bg {
-  backdrop-filter: $theme-filter;
+	backdrop-filter: $theme-filter;
 }
 
 @supports not (backdrop-filter: $theme-filter) {
-  .filter-bg {
-    background-color: $theme-moz-backfill;
-    background-image: $background-web;
-  }
+	.filter-bg {
+		background-color: $theme-moz-backfill;
+		background-image: $background-web;
+	}
 }

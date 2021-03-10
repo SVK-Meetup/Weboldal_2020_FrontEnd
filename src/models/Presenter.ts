@@ -1,5 +1,5 @@
 export default class Presenter {
-	public name: string = ""
-	public picture: string = ""
-	public description: string = ""
+	public name: string = "";
+	public picture: string = "";
+	public description: string = "";
 }
