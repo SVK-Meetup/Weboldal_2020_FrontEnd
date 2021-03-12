@@ -87,10 +87,10 @@ export default new Vuex.Store({
 				let resData: any;
 				const contentType = response.headers.get("content-type");
 				const hasJson = contentType?.indexOf("application/json");
-				if (hasJson && hasJson !== -1) {
-					console.log(contentType?.indexOf("application/json"));
 
+				if (hasJson! > -1) {
 					resData = await response?.json();
+
 					if (resData?.message) {
 						commit("ADD_TOAST", {
 							message: resData.message,
