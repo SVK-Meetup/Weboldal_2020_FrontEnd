@@ -47,9 +47,9 @@ export default class App extends Vue {
 
 
 <style lang="scss">
-@import "./scss/vars";
-@import "./scss/elements";
-@import "./scss/cards";
+@use "./scss/vars" as *;
+@use "./scss/elements";
+@use "./scss/cards";
 
 div.messages {
 	position: fixed;

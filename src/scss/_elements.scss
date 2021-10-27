@@ -1,3 +1,5 @@
+@use "./vars" as *;
+
 // --- RESET ---
 *,
 *:before,
@@ -152,7 +154,7 @@ main {
 hr {
 	width: 90%;
 	max-width: 800px;
-	margin: $default-padding Max($large-padding, $default-padding);
+	margin: $default-padding max($large-padding, $default-padding);
 	border: none;
 	background-image: linear-gradient(
 		90deg,
@@ -168,7 +170,7 @@ section {
 	min-height: $section-min-height;
 	display: grid;
 	width: 100%;
-	padding: $default-padding Max($large-padding, $default-padding);
+	padding: $default-padding max($large-padding, $default-padding);
 	&.with-heading {
 		grid-template-rows: 4rem 1fr;
 	}

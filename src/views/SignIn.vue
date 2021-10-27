@@ -7,7 +7,7 @@
 </template>
 
 <style lang="scss">
-@import "../scss/vars";
+@use "../scss/vars" as *;
 
 .sign-in--wrapper {
 	margin-bottom: -40px;

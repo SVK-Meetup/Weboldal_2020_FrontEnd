@@ -261,7 +261,9 @@ export default class Home extends Vue {
 </script>
 
 <style lang="scss">
-@import "../scss/vars";
+@use "../scss/vars" as *;
+@use "sass:math";
+
 section#banner {
 	position: relative;
 	place-items: center;
@@ -293,7 +295,7 @@ section#banner {
 }
 section#information {
 	.information--description {
-		width: Min($info-max-width, 100%);
+		width: min($info-max-width, 100%);
 		margin: 0 auto;
 	}
 }
@@ -301,7 +303,7 @@ section#registration {
 	div.grid-wrapper {
 		place-items: center;
 		form {
-			width: Min(100%, 300px);
+			width: min(100%, 300px);
 		}
 	}
 }
@@ -326,7 +328,7 @@ section#gallery {
 		}
 	}
 	.gallery-modal--slides {
-		padding-right: $default-padding / 4;
+		padding-right: math.div($default-padding, 4);
 		//overflow: visible;
 	}
 	.gallery-modal--slide {

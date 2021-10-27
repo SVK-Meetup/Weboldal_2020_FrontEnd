@@ -85,7 +85,8 @@ export default class AdminRegistered extends Vue {
 </script>
 
 <style lang="scss">
-@import "../scss/vars";
+@use "../scss/vars" as *;
+
 button.unregister {
 	padding: 0 10px;
 }

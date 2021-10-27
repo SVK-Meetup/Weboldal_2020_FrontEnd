@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Colors
 $theme-background: var(--svk-theme-background);
 $theme-lines: var(--svk-theme-lines);
@@ -24,7 +26,7 @@ $query-large-desktop: 1366px;
 $z-z-5: 0 0 5px;
 
 $default-padding: 20px;
-$large-padding: calc(50vw - #{(1366px - 40px) / 2});
+$large-padding: calc(50vw - math.div(1366px - 40px, 2));
 $default-s-radius: 5px;
 $default-m-radius: 10px;
 $section-min-height: 0px;

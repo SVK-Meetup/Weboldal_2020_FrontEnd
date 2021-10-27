@@ -303,7 +303,8 @@ export default class AdminPage extends Vue {
 </script>
 
 <style lang="scss">
-@import "../scss/vars";
+@use "../scss/vars" as *;
+
 .admin-page {
 	max-width: 1100px;
 	margin: 0 auto;

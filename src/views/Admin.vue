@@ -72,7 +72,8 @@ export default class Admin extends Vue {
 </script>
 
 <style lang="scss">
-@import "../scss/vars";
+@use "../scss/vars" as *;
+
 .admin-view {
 	padding: $default-padding;
 	hr {
