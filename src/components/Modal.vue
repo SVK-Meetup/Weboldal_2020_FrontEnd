@@ -14,7 +14,8 @@
 </template>
 
 <style lang="scss">
-@import "../scss/vars";
+@use "../scss/vars" as *;
+
 .modal {
 	background: $theme-background;
 	position: fixed;

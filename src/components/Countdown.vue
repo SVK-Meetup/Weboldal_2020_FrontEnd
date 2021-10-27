@@ -55,7 +55,8 @@ export default class Countdown extends Vue {
 </script>
 
 <style lang="scss">
-@import "../scss/vars";
+@use "../scss/vars" as *;
+
 .countdown {
 	display: flex;
 	justify-content: space-evenly;

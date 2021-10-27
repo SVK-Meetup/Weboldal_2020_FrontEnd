@@ -8,7 +8,8 @@
 </template>
 
 <style lang="scss">
-@import "../scss/vars";
+@use "../scss/vars" as *;
+
 .footer {
 	margin-top: 2 * $default-padding;
 	padding: $default-padding;

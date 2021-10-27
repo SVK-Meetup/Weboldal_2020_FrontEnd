@@ -22,7 +22,8 @@ export default class Toast extends Vue {
 </script>
 
 <style lang="scss">
-@import "../scss/vars";
+@use "../scss/vars" as *;
+
 div.toast {
 	position: relative;
 	width: 100%;

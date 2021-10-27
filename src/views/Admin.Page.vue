@@ -220,7 +220,7 @@
 				</div>
 			</div>
 			<div class="col-group col2-eq-width">
-				<input type="submit" value="Mentés" />
+				<input type="submit" value="Mentés" aria-label="mentés" />
 				<button type="button" @click="reset">Reset</button>
 			</div>
 		</form>

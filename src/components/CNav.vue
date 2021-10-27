@@ -23,7 +23,9 @@ export default class CNav extends Vue {
 </script>
 
 <style lang="scss">
-@import "../scss/vars";
+@use "sass:math";
+@use "../scss/vars" as *;
+
 $nav-dot-size: 16px;
 nav {
 	position: fixed;
@@ -107,7 +109,7 @@ nav {
 		}
 	}
 	a {
-		padding: $default-padding/2 $default-padding;
+		padding: math.div($default-padding, 2) $default-padding;
 		display: block;
 		div.nav--dot {
 			position: relative;
