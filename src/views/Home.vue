@@ -1,3 +1,46 @@
+<script lang="ts">
+import { Vue, Component, Prop } from "vue-property-decorator";
+import IEventConfig from "@/models/IEventConfig";
+import IAttendee from "@/models/IAttendee";
+import CNav from "@/components/CNav.vue";
+import Modal from "@/components/Modal.vue";
+import Countdown from "@/components/Countdown.vue";
+
+@Component({
+	components: {
+		CNav,
+		Modal,
+		Countdown,
+	},
+})
+export default class Home extends Vue {
+	@Prop() eventConfig!: IEventConfig;
+	regSuccess: boolean = false;
+	waitForResponse: boolean = false;
+	attendee: IAttendee = {
+		name: "",
+		email: "",
+		organization: "",
+		comment: "",
+	};
+
+	register() {
+		this.waitForResponse = true;
+		this.$store
+			.dispatch("fetchService", {
+				url: "/api/register",
+				method: "POST",
+				data: this.attendee,
+				exStatus: 200,
+				onSuccess: () => {
+					this.regSuccess = true;
+				},
+			})
+			.then(() => (this.waitForResponse = false));
+	}
+}
+</script>
+
 <template>
 	<div class="home">
 		<CNav>
@@ -80,7 +123,7 @@
 			<section v-if="!regSuccess" id="registration" class="with-heading">
 				<h2>Regisztráció</h2>
 				<div class="grid-wrapper">
-					<form v-if="this.eventConfig.regActive" @submit.prevent="register">
+					<form v-if="eventConfig.regActive" @submit.prevent="register">
 						<input
 							type="text"
 							minlength="3"
@@ -190,8 +233,8 @@
 								class="gallery-modal--slide gallery-modal--folder"
 								:style="`background-image: url('${dir.index}')`"
 							>
-								<span>{{ dir.name }}</span>
-								<span>{{ dir.date }}</span>
+								<span class="folder-date">{{ dir.date }}</span>
+								<span class="folder-name">{{ dir.name }}</span>
 							</div>
 							<div slot="content" class="gallery-modal--slides modal--grid">
 								<!-- Images in the folder modal -->
@@ -216,49 +259,6 @@
 		</main>
 	</div>
 </template>
-
-<script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
-import IEventConfig from "@/models/IEventConfig";
-import IAttendee from "@/models/IAttendee";
-import CNav from "@/components/CNav.vue";
-import Modal from "@/components/Modal.vue";
-import Countdown from "@/components/Countdown.vue";
-
-@Component({
-	components: {
-		CNav,
-		Modal,
-		Countdown,
-	},
-})
-export default class Home extends Vue {
-	@Prop() eventConfig!: IEventConfig;
-	regSuccess: boolean = false;
-	waitForResponse: boolean = false;
-	attendee: IAttendee = {
-		name: "",
-		email: "",
-		organization: "",
-		comment: "",
-	};
-
-	register() {
-		this.waitForResponse = true;
-		this.$store
-			.dispatch("fetchService", {
-				url: "/api/register",
-				method: "POST",
-				data: this.attendee,
-				exStatus: 200,
-				onSuccess: () => {
-					this.regSuccess = true;
-				},
-			})
-			.then(() => (this.waitForResponse = false));
-	}
-}
-</script>
 
 <style lang="scss">
 @use "../scss/vars" as *;
@@ -347,12 +347,25 @@ section#gallery {
 		}
 	}
 	.gallery-modal--folder {
-		display: grid;
-		place-items: center;
+		position: relative;
 		span {
-			padding: 5px $default-padding;
+			padding: 5px math.div($default-padding, 2);
 			background-color: $theme-background;
 			border-radius: $default-s-radius;
+			&.folder-date {
+				position: absolute;
+				top: $default-padding;
+				left: 0;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+			}
+			&.folder-name {
+				position: absolute;
+				top: $default-padding;
+				left: 0;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+			}
 		}
 	}
 	.gallery-modal--image-container {
