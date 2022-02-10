@@ -317,7 +317,7 @@ section#gallery {
 		.gallery--slide {
 			height: 200px;
 			background-size: cover;
-			background-position: center;
+			background-position: 50% 30%;
 			background-repeat: no-repeat;
 			flex-grow: 1;
 			transition: flex-grow 0.3s ease-in-out;
