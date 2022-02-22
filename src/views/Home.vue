@@ -22,6 +22,7 @@ export default class Home extends Vue {
 		email: "",
 		organization: "",
 		comment: "",
+		emailConsent: true,
 	};
 
 	register() {
@@ -97,6 +98,7 @@ export default class Home extends Vue {
 					<a href="#registration" class="action-link">Regisztráció</a>
 				</div>
 			</section>
+			<div data-hue="45deg" class="section-separator"></div>
 			<section id="information">
 				<Countdown :event-date="eventConfig.date" />
 				<h2>{{ eventConfig.title }}</h2>
@@ -158,6 +160,11 @@ export default class Home extends Vue {
 							aria-label="Honnan értesültél a rendezvényről?"
 							v-model.trim="attendee.comment"
 						/>
+						<div class="flex-wrapper-10">
+							<label for="emailConsent">Hírlevél</label>
+							<input v-model="attendee.emailConsent" type="checkbox" id="emailConsent">
+						</div>
+						Szeretnék értesítést kapni a legközelebbi Schönherz MeetUpról, ezáltal beleegyezem, hogy a Schönherz Vállalati Kapcsolatok eltárolja az e-mailcímemet, kizárolag a fenti értesítés céljából.
 						<div>
 							<input
 								:disabled="waitForResponse"
@@ -165,16 +172,11 @@ export default class Home extends Vue {
 								value="Regisztráció"
 							/>
 						</div>
-						<p>
-							Az e-mail cím kizárólag az eseménnyel kapcsolatos információk
-							közlésére használható fel. Az esemény után 3 nappal törlésre
-							kerül, harmadik féllel nem kerül megosztásra.
-						</p>
 					</form>
 					<p v-else>Jelenleg nincs regisztráció.</p>
 				</div>
 			</section>
-			<hr />
+			<div data-hue="45deg" class="section-separator"></div>
 			<section id="contacts" class="card-section with-heading">
 				<h2>Elérhetőség</h2>
 				<div class="flex-wrapper">
@@ -264,17 +266,22 @@ export default class Home extends Vue {
 @use "../scss/vars" as *;
 @use "sass:math";
 
+.section-separator {
+	min-height: 100px;
+	border-top: 1px solid var(--svk-theme-lines);
+	border-bottom: 1px solid var(--svk-theme-lines);
+	backdrop-filter: hue-rotate(40deg);
+}
+
 section#banner {
 	position: relative;
 	place-items: center;
-	max-width: unset;
+	min-height: 100vh;
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
 	box-shadow: 0 0 20vmax #000 inset;
 	div.banner--wrapper {
-		text-align: center;
-		display: inline-block;
 		h1 {
 			display: inline-block;
 			border-radius: $default-s-radius;
@@ -361,10 +368,9 @@ section#gallery {
 			}
 			&.folder-name {
 				position: absolute;
-				top: $default-padding;
-				left: 0;
-				border-top-left-radius: 0;
-				border-bottom-left-radius: 0;
+				left: $default-padding;
+				bottom: $default-padding;
+				width: calc(100% - #{2 * $default-padding});
 			}
 		}
 	}

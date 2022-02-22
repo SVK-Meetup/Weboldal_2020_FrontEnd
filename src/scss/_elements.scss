@@ -136,12 +136,10 @@ body {
 	display: grid;
 	font-family: "Source Sans Pro", sans-serif;
 	background-color: $theme-background;
-	background-image: $background-web,
-		radial-gradient($theme-light, transparent 70%);
+	background-image: $background-web, radial-gradient($theme-light, transparent 70%);
 	background-repeat: repeat, no-repeat;
 	background-size: auto, 100vw 2 * $light-spot-h;
-	background-position: 0 0,
-		center calc(#{$section-min-height} - #{$light-spot-h});
+	background-position: 0 0, center calc(#{$section-min-height} - #{$light-spot-h});
 	line-height: 1;
 	text-align: center;
 	transition: color 0.2s ease-out, background-color 0.2s ease-out;
@@ -156,12 +154,7 @@ hr {
 	max-width: 800px;
 	margin: $default-padding max($large-padding, $default-padding);
 	border: none;
-	background-image: linear-gradient(
-		90deg,
-		transparent,
-		$theme-text1,
-		transparent
-	);
+	background-image: linear-gradient(90deg, transparent, $theme-text1, transparent);
 	display: inline-block;
 	height: 1px;
 }
@@ -411,6 +404,12 @@ div.flex-wrapper {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
+}
+
+.flex-wrapper-10 {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
 }
 
 .filter-bg {

@@ -4,4 +4,5 @@ export default interface IAttendee {
 	email: string;
 	organization: string;
 	comment: string;
+	emailConsent: boolean;
 }

@@ -29,6 +29,7 @@ $default-padding: 20px;
 $large-padding: calc(50vw - math.div(1366px - 40px, 2));
 $default-s-radius: 5px;
 $default-m-radius: 10px;
+$default-max-radius: 100vmax;
 $section-min-height: 0px;
 $checkbox-size: 15px;
 $info-max-width: 700px;
@@ -39,6 +40,7 @@ $shadow: 0 0 10px;
 $nav-width: 300px;
 
 // Z-indecies
+$z-tooltip: 1;
 $z-nav: 10;
 $z-modal: 20;
 $z-messages: 100;

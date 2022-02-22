@@ -9,6 +9,7 @@
 					<th>E-mail</th>
 					<th>Szervezet</th>
 					<th>Referálva</th>
+					<th>Hírlevél</th>
 					<th>Törlés</th>
 				</tr>
 			</thead>
@@ -19,6 +20,7 @@
 					<td>{{ attendee.email }}</td>
 					<td>{{ attendee.organization }}</td>
 					<td :title="attendee.comment">{{ attendee.comment }}</td>
+					<td>{{ attendee.emailConsent ? '✔' : '❌' }}</td>
 					<td class="td-button" :title="attendee.name">
 						<button
 							type="button"
