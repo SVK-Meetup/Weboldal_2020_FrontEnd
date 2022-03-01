@@ -59,19 +59,6 @@ div.messages {
 	pointer-events: none;
 }
 
-// Lecseréli a H1-et a hátterére, a hátterét meg eltűnteti
-/* @supports (-webkit-background-clip: text) or (background-clip: text) {
-	section#banner {
-		div.banner--wrapper {
-			h1 {
-				color: transparent;
-				background-clip: text;
-				-webkit-background-clip: text;
-			}
-		}
-	}
-} */
-
 // LOADER
 $size: 20vmin;
 $dist: 3vmin;

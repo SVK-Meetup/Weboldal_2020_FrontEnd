@@ -37,7 +37,7 @@ export default class Home extends Vue {
 					this.regSuccess = true;
 				},
 			})
-			.then(() => (this.waitForResponse = false));
+			.finally(() => (this.waitForResponse = false));
 	}
 }
 </script>
@@ -164,7 +164,7 @@ export default class Home extends Vue {
 							<label for="emailConsent">Hírlevél</label>
 							<input v-model="attendee.emailConsent" type="checkbox" id="emailConsent">
 						</div>
-						Szeretnék értesítést kapni a legközelebbi Schönherz MeetUpról, ezáltal beleegyezem, hogy a Schönherz Vállalati Kapcsolatok eltárolja az e-mailcímemet, kizárolag a fenti értesítés céljából.
+						Szeretnék értesítést kapni a legközelebbi Schönherz MeetUpról, ezáltal beleegyezem, hogy a Schönherz Vállalati Kapcsolatok eltárolja az e-mail címemet, kizárólag a fenti értesítés céljából.
 						<div>
 							<input
 								:disabled="waitForResponse"
@@ -272,13 +272,25 @@ export default class Home extends Vue {
 	border-bottom: 1px solid var(--svk-theme-lines);
 	backdrop-filter: hue-rotate(40deg);
 }
+// Lecseréli a H1-et a hátterére, a hátterét meg eltűnteti
+/* @supports (-webkit-background-clip: text) or (background-clip: text) {
+	section#banner {
+		div.banner--wrapper {
+			h1 {
+				color: transparent;
+				background-clip: text;
+				-webkit-background-clip: text;
+			}
+		}
+	}
+} */
 
 section#banner {
 	position: relative;
 	place-items: center;
 	min-height: 100vh;
 	background-size: cover;
-	background-position: center;
+	background-position: left;
 	background-attachment: fixed;
 	box-shadow: 0 0 20vmax #000 inset;
 	div.banner--wrapper {
